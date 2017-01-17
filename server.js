@@ -123,6 +123,12 @@ server.get('/versions/:name', function (req, res) {
   res.send(data.whichVersions(name));
 });
 
+server.get('/package/:name', function (req, res) {
+  var name = req.params.name;
+  var range = 'x.x.x';
+  returnPackageByRange(name, range, res);
+});
+
 server.get('/package/:name/:range', function (req, res, next) {
   var name = req.params.name;
   var range = req.params.range;
